@@ -1,0 +1,25 @@
+{
+  "name": "playwright-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IlliaKondratiuk/Playwright-UI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IlliaKondratiuk/Playwright-UI/issues"
+  },
+  "homepage": "https://github.com/IlliaKondratiuk/Playwright-UI#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
