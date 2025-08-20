@@ -8,6 +8,6 @@
     "outDir": "dist",
     "types": ["@playwright/test"]
   },
-  "include": ["tests", "pages", "helpers", "fixtures"],
+  "include": ["tests", "pages", "helpers", "fixtures", "playwright.config.ts"],
    "exclude": ["node_modules", "dist" ]
 }
