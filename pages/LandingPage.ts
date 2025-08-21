@@ -1,12 +1,13 @@
 import { Page } from "@playwright/test";
 import { PAGES } from "../config/urls";
+import { BasePage } from "./BasePage";
 
-export class LandingPage {
+export class LandingPage extends BasePage {
 
-  constructor(private page: Page) {}
+    url = PAGES.LANDING;
 
-  async goto() {
-    await this.page.goto(PAGES.LANDING);
-  }
+    constructor(page: Page) {
+        super(page);
+    }
 
 }
