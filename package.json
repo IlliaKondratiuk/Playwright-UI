@@ -1,6 +1,7 @@
 {
   "name": "playwright-ui",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,8 +19,12 @@
   "homepage": "https://github.com/IlliaKondratiuk/Playwright-UI#readme",
   "description": "",
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.34.0",
     "@playwright/test": "^1.54.2",
+    "eslint": "^9.34.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0"
   }
 }
