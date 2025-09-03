@@ -13,6 +13,8 @@ export class ComplicatedPage extends BasePage {
   readonly formMessageTextarea: Locator;
   readonly formFakeCaptchaInput: Locator;
   readonly formSubmitButton: Locator;
+  readonly formFailedSubmitMessage: Locator;
+  readonly formFailedSubmitMissingFields: Locator;
 
 
   constructor(page: Page) {
@@ -25,6 +27,8 @@ export class ComplicatedPage extends BasePage {
     this.formMessageTextarea = page.locator("textarea[id='et_pb_contact_message_0']");
     this.formFakeCaptchaInput = page.locator("input[name='et_pb_contact_captcha_0']");
     this.formSubmitButton = page.locator("#et_pb_contact_form_0 button[name='et_builder_submit_button']");
+    this.formFailedSubmitMessage = page.locator("#et_pb_contact_form_0 div[class*='et-pb-contact-message'] p");
+    this.formFailedSubmitMissingFields = page.locator("#et_pb_contact_form_0 div[class*='et-pb-contact-message'] ul li");
   }
 
   async clickEverySecondButton(): Promise<void> {
@@ -55,5 +59,18 @@ export class ComplicatedPage extends BasePage {
     await this.type(this.formMessageTextarea, message);
     await this.fillFakeCaptcha();
     await this.click(this.formSubmitButton);
+  }
+
+  async getFailedSubmitMessageText(): Promise<string> {
+    return this.formFailedSubmitMessage.innerText();
+  }
+
+  async getFailedSubmitMissingFieldsText(): Promise<string[]> {
+    const count = await this.formFailedSubmitMissingFields.count();
+    const missingFields: string[] = [];
+    for (let i = 0; i < count; i++) {
+      missingFields.push(await this.formFailedSubmitMissingFields.nth(i).innerText());
+    }
+    return missingFields;
   }
 }

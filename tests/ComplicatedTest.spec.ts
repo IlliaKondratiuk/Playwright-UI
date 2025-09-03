@@ -33,3 +33,12 @@ test("fill and submit form", async ({ page }) => {
 
   await complicatedPage.fillAndSubmitForm(formName, formEmail, formMessage);
 });
+
+test("submit empty form and check error message", async ({ page }) => {
+  const complicatedPage = new ComplicatedPage(page);
+  await complicatedPage.goto(complicatedPage.url);
+
+  await complicatedPage.click(complicatedPage.formSubmitButton);
+  expect(await complicatedPage.getFailedSubmitMessageText()).toContain(testData.complicated_form.emptyFormSubmitMessage);
+  expect(await complicatedPage.getFailedSubmitMissingFieldsText()).toEqual([testData.complicated_form.emptyFormMissingFields].flat());
+});

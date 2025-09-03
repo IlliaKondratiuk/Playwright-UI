@@ -2,6 +2,13 @@
   "complicated_form": {
     "formName": "TestName",
     "formEmail": "TestMail@qa.test",
-    "formMessage": "This is a test message."
+    "formMessage": "This is a test message.",
+    "emptyFormSubmitMessage": "Please, fill in the following fields:",
+    "emptyFormMissingFields": [
+      "Name",
+      "Email Address",
+      "Message",
+      "Captcha"
+    ]
   }
 }
