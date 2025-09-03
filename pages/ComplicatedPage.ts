@@ -24,7 +24,7 @@ export class ComplicatedPage extends BasePage {
     this.formEmailInput = page.locator("input[id='et_pb_contact_email_0']");
     this.formMessageTextarea = page.locator("textarea[id='et_pb_contact_message_0']");
     this.formFakeCaptchaInput = page.locator("input[name='et_pb_contact_captcha_0']");
-    this.formSubmitButton = page.locator("button[class*='et_builder_submit_button']");
+    this.formSubmitButton = page.locator("#et_pb_contact_form_0 button[name='et_builder_submit_button']");
   }
 
   async clickEverySecondButton(): Promise<void> {
