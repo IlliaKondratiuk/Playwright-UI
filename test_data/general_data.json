@@ -10,5 +10,25 @@
       "Message",
       "Captcha"
     ]
+  },
+  "simple_elements": {
+    "formName": "TestName",
+    "formEmail": "TestMail@qa.test",
+    "formSuccessMessage": "Thanks for contacting us",
+    "genderButtonValues": [ 
+      "Male",
+      "Female",
+      "Other"
+    ],
+    "manufacturers": [
+      "Volvo",
+      "Saab",
+      "Opel",
+      "Audi"
+    ],
+    "tabContents": [
+      "tab 1 content",
+      "Tab 2 content"
+    ]
   }
 }
