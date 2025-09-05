@@ -8,20 +8,24 @@ export class SimpleElemsPage extends BasePage {
     readonly emailMeNameInput: Locator;
     readonly emailMeEmailInput: Locator;
     readonly emailMeButton: Locator;
+    readonly emailMeSuccessMessage: Locator;
     readonly genderRadioButtons: Locator;
     readonly transportCheckboxes: Locator;
     readonly manufacturerDropdown: Locator;
     readonly contentTabs: Locator;
+    readonly contentTabsText: Locator;
 
     constructor(page: Page) {
         super(page);
         this.emailMeNameInput = page.locator("input[id='et_pb_contact_name_0']");
         this.emailMeEmailInput = page.locator("input[id='et_pb_contact_email_0']");
         this.emailMeButton = page.locator("button[name='et_builder_submit_button']");
+        this.emailMeSuccessMessage = page.locator("div[id='et_pb_contact_form_0'] p[class='et-pb-contact-message']");
         this.genderRadioButtons = page.locator("input[name='gender']");
         this.transportCheckboxes = page.locator("input[name='vehicle']");
         this.manufacturerDropdown = page.locator("select[id='carselect']");
         this.contentTabs = page.locator("ul.et_pb_tabs_controls li");
+        this.contentTabsText = page.locator("div[class='et_pb_tab_content']");
     }
 
     async fillEmailMeForm(name: string, email: string): Promise<void> {
@@ -32,6 +36,10 @@ export class SimpleElemsPage extends BasePage {
 
     async clickEmailMeButton(): Promise<void> {
         await this.click(this.emailMeButton);
+    }
+
+    async getEmailMeSuccessMessage(): Promise<string> {
+        return this.emailMeSuccessMessage.innerText();
     }
 
     async selectRadioButtonByValue(value: string): Promise<void> {
@@ -53,4 +61,8 @@ export class SimpleElemsPage extends BasePage {
     async clickTabByIndex(index: number): Promise<void> {
         await this.click(this.contentTabs.nth(index));
     }      
+
+    async isContentTabTextVisible(index: number): Promise<boolean> {
+        return this.contentTabsText.nth(index).isVisible();
+    }
 }
