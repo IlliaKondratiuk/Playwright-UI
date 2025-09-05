@@ -16,9 +16,9 @@
     "formEmail": "TestMail@qa.test",
     "formSuccessMessage": "Thanks for contacting us",
     "genderButtonValues": [ 
-      "Male",
-      "Female",
-      "Other"
+      "male",
+      "female",
+      "other"
     ],
     "manufacturers": [
       "Volvo",
