@@ -14,6 +14,8 @@ export class SimpleElemsPage extends BasePage {
     readonly manufacturerDropdown: Locator;
     readonly contentTabs: Locator;
     readonly contentTabsText: Locator;
+    readonly tableWithIdRows: Locator;
+    readonly reableWithoutIdRows: Locator;
 
     constructor(page: Page) {
         super(page);
@@ -26,6 +28,8 @@ export class SimpleElemsPage extends BasePage {
         this.manufacturerDropdown = page.locator("select[id='carselect']");
         this.contentTabs = page.locator("ul.et_pb_tabs_controls li");
         this.contentTabsText = page.locator("div[class='et_pb_tab_content']");
+        this.tableWithIdRows = page.locator("#htmlTableId tbody tr");
+        this.reableWithoutIdRows = page.locator("div[class = et_pb_text_inner] table:not([id]) tbody tr");
     }
 
     async fillEmailMeForm(name: string, email: string): Promise<void> {
@@ -64,5 +68,15 @@ export class SimpleElemsPage extends BasePage {
 
     async isContentTabTextVisible(index: number): Promise<boolean> {
         return this.contentTabsText.nth(index).isVisible();
+    }
+
+    async getTableWithIdRows(): Promise<string[][]> {
+        const rows = await this.tableWithIdRows.all();
+        return Promise.all(rows.map(r => r.locator("td").allInnerTexts()));
+    }
+
+    async getTableWithoutIdRows(): Promise<string[][]> {
+        const rows = await this.tableWithIdRows.all();
+        return Promise.all(rows.map(r => r.locator("td").allInnerTexts()));
     }
 }
