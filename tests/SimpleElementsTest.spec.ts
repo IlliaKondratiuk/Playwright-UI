@@ -34,3 +34,25 @@ test("interact with simple elements in first column", async ({ page }) => {
     expect.soft(await simpleElemsPage.isContentTabTextVisible(0)).toBeTruthy();
 
 });
+
+//this one fails intentionally to check reporting
+test("check salaries in both tables", async ({ page }) => {
+
+    const simpleElemsPage = new SimpleElemsPage(page);
+    
+    await simpleElemsPage.goto(simpleElemsPage.url);
+
+    const table1 = await simpleElemsPage.getTableWithIdRows();
+    for (const [, work, salary] of table1) {
+        expect.soft(salary).toBe(testData.simple_elements.salaryRules[work as keyof typeof testData.simple_elements.salaryRules]);
+    }
+
+    const table2 = await simpleElemsPage.getTableWithoutIdRows();
+    for (const [, work, salary] of table2) {
+        expect.soft(salary).toBe(testData.simple_elements.salaryRules[work as keyof typeof testData.simple_elements.salaryRules]);
+    }
+
+    console.log(table1);
+    console.log(table2);
+});
+
