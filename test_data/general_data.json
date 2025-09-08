@@ -29,6 +29,10 @@
     "tabContents": [
       "tab 1 content",
       "Tab 2 content"
-    ]
+    ],
+    "salaryRules": { 
+      "Manual": "$50,000+",
+      "Automation": "$120,000+"
+    }
   }
 }
