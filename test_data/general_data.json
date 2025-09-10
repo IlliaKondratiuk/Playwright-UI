@@ -34,5 +34,12 @@
       "Manual": "$50,000+",
       "Automation": "$120,000+"
     }
+  },
+  "fake_pricing": {
+    "expectedPrices": [
+      "$0",
+      "$80",
+      "$900"
+    ]
   }
 }
