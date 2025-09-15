@@ -1,7 +1,7 @@
 //This class contains tests for the "Complicated" page
 import { expect, test } from "@playwright/test";
 import { ComplicatedPage } from "../pages/ComplicatedPage";
-import testData from "../test_data/general_data.json" assert { type: "json" };;
+import testData from "../test_data/general_data.json" assert { type: "json" };
 
 test("click every second button in first section", async ({ page }) => {
   const complicatedPage = new ComplicatedPage(page);
@@ -39,6 +39,10 @@ test("submit empty form and check error message", async ({ page }) => {
   await complicatedPage.goto(complicatedPage.url);
 
   await complicatedPage.click(complicatedPage.formSubmitButton);
-  expect(await complicatedPage.getFailedSubmitMessageText()).toContain(testData.complicated_form.emptyFormSubmitMessage);
-  expect(await complicatedPage.getFailedSubmitMissingFieldsText()).toEqual([testData.complicated_form.emptyFormMissingFields].flat());
+  expect(await complicatedPage.getFailedSubmitMessageText()).toContain(
+    testData.complicated_form.emptyFormSubmitMessage
+  );
+  expect(await complicatedPage.getFailedSubmitMissingFieldsText()).toEqual(
+    [testData.complicated_form.emptyFormMissingFields].flat()
+  );
 });

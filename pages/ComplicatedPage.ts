@@ -16,7 +16,6 @@ export class ComplicatedPage extends BasePage {
   readonly formFailedSubmitMessage: Locator;
   readonly formFailedSubmitMissingFields: Locator;
 
-
   constructor(page: Page) {
     super(page);
     this.firstSectionButtons = page.locator("a[class*='et_pb_button']");
@@ -28,7 +27,9 @@ export class ComplicatedPage extends BasePage {
     this.formFakeCaptchaInput = page.locator("input[name='et_pb_contact_captcha_0']");
     this.formSubmitButton = page.locator("#et_pb_contact_form_0 button[name='et_builder_submit_button']");
     this.formFailedSubmitMessage = page.locator("#et_pb_contact_form_0 div[class*='et-pb-contact-message'] p");
-    this.formFailedSubmitMissingFields = page.locator("#et_pb_contact_form_0 div[class*='et-pb-contact-message'] ul li");
+    this.formFailedSubmitMissingFields = page.locator(
+      "#et_pb_contact_form_0 div[class*='et-pb-contact-message'] ul li"
+    );
   }
 
   async clickEverySecondButton(): Promise<void> {
@@ -46,9 +47,9 @@ export class ComplicatedPage extends BasePage {
     await this.click(this.facebookButtons.first());
   }
 
-  async fillFakeCaptcha(): Promise<void> { 
-    const fakeCaptchaNumber1 = await this.formFakeCaptchaInput.getAttribute("data-first_digit") || "0";
-    const fakeCaptchaNumber2 = await this.formFakeCaptchaInput.getAttribute("data-second_digit") || "0";
+  async fillFakeCaptcha(): Promise<void> {
+    const fakeCaptchaNumber1 = (await this.formFakeCaptchaInput.getAttribute("data-first_digit")) || "0";
+    const fakeCaptchaNumber2 = (await this.formFakeCaptchaInput.getAttribute("data-second_digit")) || "0";
 
     await this.formFakeCaptchaInput.fill((parseInt(fakeCaptchaNumber1) + parseInt(fakeCaptchaNumber2)).toString());
   }

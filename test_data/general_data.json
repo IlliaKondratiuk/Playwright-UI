@@ -4,42 +4,21 @@
     "formEmail": "TestMail@qa.test",
     "formMessage": "This is a test message.",
     "emptyFormSubmitMessage": "Please, fill in the following fields:",
-    "emptyFormMissingFields": [
-      "Name",
-      "Email Address",
-      "Message",
-      "Captcha"
-    ]
+    "emptyFormMissingFields": ["Name", "Email Address", "Message", "Captcha"]
   },
   "simple_elements": {
     "formName": "TestName",
     "formEmail": "TestMail@qa.test",
     "formSuccessMessage": "Thanks for contacting us",
-    "genderButtonValues": [ 
-      "male",
-      "female",
-      "other"
-    ],
-    "manufacturers": [
-      "Volvo",
-      "Saab",
-      "Opel",
-      "Audi"
-    ],
-    "tabContents": [
-      "tab 1 content",
-      "Tab 2 content"
-    ],
-    "salaryRules": { 
+    "genderButtonValues": ["male", "female", "other"],
+    "manufacturers": ["Volvo", "Saab", "Opel", "Audi"],
+    "tabContents": ["tab 1 content", "Tab 2 content"],
+    "salaryRules": {
       "Manual": "$50,000+",
       "Automation": "$120,000+"
     }
   },
   "fake_pricing": {
-    "expectedPrices": [
-      "$0",
-      "$80",
-      "$900"
-    ]
+    "expectedPrices": ["$0", "$80", "$900"]
   }
 }
