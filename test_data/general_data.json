@@ -20,5 +20,10 @@
   },
   "fake_pricing": {
     "expectedPrices": ["$0", "$80", "$900"]
+  },
+  "sprint_lifecycle": {
+    "firstNames": ["John", "Alice"],
+    "lastNames": ["Doe", "Smith"],
+    "genderButtonValues": ["male", "female", "other"]
   }
 }
