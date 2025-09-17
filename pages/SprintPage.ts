@@ -2,7 +2,7 @@ import { Page, Locator } from "@playwright/test";
 import { PAGES } from "../config/urls";
 import { BasePage } from "./BasePage";
 
-export class ComplicatedPage extends BasePage {
+export class SprintPage extends BasePage {
   url = PAGES.LIFECYCLE;
 
   readonly firstNameInputs: Locator;
