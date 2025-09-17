@@ -9,7 +9,7 @@ export class ComplicatedPage extends BasePage {
   readonly lastNameInputs: Locator;
   readonly genderSelects: Locator;
   readonly submitButtons: Locator;
-
+  readonly nextSprintButton: Locator;
 
   constructor(page: Page) {
    super(page);
@@ -18,7 +18,7 @@ export class ComplicatedPage extends BasePage {
    this.lastNameInputs = page.locator("input[name='lastname']");
    this.genderSelects = page.locator("input[name='gender']");
    this.submitButtons = page.locator("form[action] input[type=submit]");
-
+   this.nextSprintButton = page.locator("form a[href *= 'lifecycle']");
   }
 
   async fillFirstName(name: string): Promise<void> {
@@ -76,4 +76,12 @@ export class ComplicatedPage extends BasePage {
     }
   }
 
+  async clickNextSprintButton(): Promise<void> {
+    await this.click(this.nextSprintButton);
+  }
+
+  async isSubmitVisible(): Promise<boolean> {
+    const count = await this.submitButtons.count();
+    return count > 0;
+  }
 }
