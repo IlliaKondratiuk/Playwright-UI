@@ -15,17 +15,20 @@ test("cycle all sprints on the page", async ({ page }) => {
     await sprintPage.fillFirstName(formFirstNames[0]);
     expect.soft(await sprintPage.isSubmitVisible()).toBeTruthy();
     await sprintPage.clickNextSprintButton();
+    await expect(page).toHaveURL(/sprint-2/)
 
     await sprintPage.fillFirstName(formFirstNames[0]);
     await sprintPage.fillLastName(formLastNames[0]);
     expect.soft(await sprintPage.isSubmitVisible()).toBeTruthy();
     await sprintPage.clickNextSprintButton();
+    await expect(page).toHaveURL(/sprint-2./)
 
     await sprintPage.fillFirstName(formFirstNames[0]);
     await sprintPage.fillLastName(formLastNames[0]);
     await sprintPage.selectGenderByValue(genderButtonValues[0]);
     expect.soft(await sprintPage.isSubmitVisible()).toBeTruthy();
     await sprintPage.clickNextSprintButton();
+    await expect(page).toHaveURL(/sprint-4/)
 
     await sprintPage.fillFirstNameByIndex(formFirstNames[0], 0);
     await sprintPage.fillLastNameByIndex(formLastNames[0], 0);
@@ -35,6 +38,7 @@ test("cycle all sprints on the page", async ({ page }) => {
     await sprintPage.selectGenderByValueAndIndex(genderButtonValues[1], 1);
     expect.soft(await sprintPage.isSubmitVisible()).toBeTruthy();
     await sprintPage.clickNextSprintButton();
+    await expect(page).toHaveURL(/sprint-5/)
 
     await sprintPage.fillFirstNameByIndex(formFirstNames[0], 0);
     await sprintPage.fillLastNameByIndex(formLastNames[0], 0);
@@ -45,5 +49,5 @@ test("cycle all sprints on the page", async ({ page }) => {
     expect.soft(await sprintPage.isSubmitVisible()).toBeTruthy();
     await sprintPage.clickSubmitByIndex(0);
 
-    await expect(page).toHaveURL(genderButtonValues[0]); //because the gender value that we used in the form should be in the URL
+    await expect(page).toHaveURL(new RegExp(genderButtonValues[0])); //because the gender value that we used in the form should be in the URL
 });
