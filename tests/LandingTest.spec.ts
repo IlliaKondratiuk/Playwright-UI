@@ -13,5 +13,5 @@ test("course blocks contain expected text", async ({ page }) => {
 
   await landingPage.goto(landingPage.url);
 
-  expect.soft(await landingPage.getLearningBlocksText()).toEqual(COURSES);
+  await expect.soft(await landingPage.getLearningBlocksText()).toEqual(COURSES);
 });

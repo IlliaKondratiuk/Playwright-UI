@@ -41,18 +41,15 @@ test("check salaries in both tables", async ({ page }) => {
 
   const table1 = await simpleElemsPage.getTableWithIdRows();
   for (const [, work, salary] of table1) {
-    expect
+    await expect
       .soft(salary)
       .toBe(testData.simple_elements.salaryRules[work as keyof typeof testData.simple_elements.salaryRules]);
   }
 
   const table2 = await simpleElemsPage.getTableWithoutIdRows();
   for (const [, work, salary] of table2) {
-    expect
+    await expect
       .soft(salary)
       .toBe(testData.simple_elements.salaryRules[work as keyof typeof testData.simple_elements.salaryRules]);
   }
-
-  console.log(table1);
-  console.log(table2);
 });

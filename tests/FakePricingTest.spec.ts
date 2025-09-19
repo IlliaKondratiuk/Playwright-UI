@@ -9,7 +9,7 @@ test("verify prices on fake pricing page", async ({ page }) => {
   await fakePricingPage.goto(fakePricingPage.url);
 
   const prices = await fakePricingPage.getPricesText();
-  expect(prices).toEqual(expectedPrices);
+  await expect(prices).toEqual(expectedPrices);
 });
 
 test("verify price buttons scroll to top", async ({ page }) => {
