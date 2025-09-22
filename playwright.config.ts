@@ -9,7 +9,6 @@ export default defineConfig({
     browserName: "chromium",
     headless: true,
     screenshot: "only-on-failure",
-    video: "retain-on-failure",
   },
     reporter: [
     ['list'], // console output
@@ -19,7 +18,11 @@ export default defineConfig({
    projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: 
+      { ...devices['Desktop Chrome'], 
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
+      }, //only one browser not to overload the storage with tons of videos and traces
     },
     {
       name: 'firefox',
