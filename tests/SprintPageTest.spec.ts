@@ -21,7 +21,7 @@ test("cycle all sprints on the page", async ({ page }) => {
     await sprintPage.fillLastName(formLastNames[0]);
     expect.soft(await sprintPage.isSubmitVisible()).toBeTruthy();
     await sprintPage.clickNextSprintButton();
-    await expect(page).toHaveURL(/sprint-2./)
+    await expect(page).toHaveURL(/sprint-3/)
 
     await sprintPage.fillFirstName(formFirstNames[0]);
     await sprintPage.fillLastName(formLastNames[0]);
