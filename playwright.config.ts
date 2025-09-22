@@ -11,7 +11,11 @@ export default defineConfig({
     screenshot: "only-on-failure",
     video: "retain-on-failure",
   },
-  reporter: [["html", { open: "never" }]],
+    reporter: [
+    ['list'], // console output
+    ['html', { open: 'never' }], // HTML report
+    ['junit', { outputFile: 'test-results/junit-report.xml' }] // JUnit for CI/CD
+  ],
    projects: [
     {
       name: 'chromium',
