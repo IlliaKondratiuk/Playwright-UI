@@ -22,7 +22,7 @@ export class SimpleElemsPage extends BasePage {
     this.emailMeNameInput = page.locator("input[id='et_pb_contact_name_0']");
     this.emailMeEmailInput = page.locator("input[id='et_pb_contact_email_0']");
     this.emailMeButton = page.locator("button[name='et_builder_submit_button']");
-    this.emailMeSuccessMessage = page.locator("div[id='et_pb_contact_form_0'] p[class='et-pb-contact-message']");
+    this.emailMeSuccessMessage = page.locator("div[id='et_pb_contact_form_0'] div[class='et-pb-contact-message'] p");
     this.genderRadioButtons = page.locator("input[name='gender']");
     this.transportCheckboxes = page.locator("input[name='vehicle']");
     this.manufacturerDropdown = page.locator("select[id='carselect']");
