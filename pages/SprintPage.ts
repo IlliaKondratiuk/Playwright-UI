@@ -72,10 +72,7 @@ export class SprintPage extends BasePage {
     if (index < 0 || index >= count) {
       throw new Error(`Index ${index} is out of bounds for gender selections with count ${count}`);
     } else {
-      await this.genderSelects
-        .nth(index)
-        .filter({ has: this.page.locator(`input[value='${value}']`) })
-        .check();
+      await this.page.locator(`input[name="gender"][value="${value}"]`).nth(index).click();
     }
   }
 
