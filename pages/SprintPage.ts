@@ -60,8 +60,8 @@ export class SprintPage extends BasePage {
 
   async selectGenderByValue(value: string): Promise<void> {
     const selectionQuantity = await this.genderSelects.count();
-    if (selectionQuantity === 1) {
-      await this.genderSelects.filter({ has: this.page.locator(`input[value='${value}']`) }).check();
+    if (selectionQuantity === 3) {
+      await this.page.locator(`input[name="gender"][value="${value}"]`).click();
     } else {
       throw new Error(`Expected exactly one gender select input, but found ${selectionQuantity}`);
     }
