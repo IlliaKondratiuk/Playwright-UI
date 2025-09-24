@@ -9,7 +9,6 @@ export class SimpleElemsPage extends BasePage {
   readonly emailMeEmailInput: Locator;
   readonly emailMeButton: Locator;
   readonly emailMeSuccessMessage: Locator;
-  readonly genderRadioButtons: Locator;
   readonly transportCheckboxes: Locator;
   readonly manufacturerDropdown: Locator;
   readonly contentTabs: Locator;
@@ -23,7 +22,6 @@ export class SimpleElemsPage extends BasePage {
     this.emailMeEmailInput = page.locator("input[id='et_pb_contact_email_0']");
     this.emailMeButton = page.locator("button[name='et_builder_submit_button']");
     this.emailMeSuccessMessage = page.locator("div[id='et_pb_contact_form_0'] div[class='et-pb-contact-message'] p");
-    this.genderRadioButtons = page.locator("input[name='gender']");
     this.transportCheckboxes = page.locator("input[name='vehicle']");
     this.manufacturerDropdown = page.locator("select[id='carselect']");
     this.contentTabs = page.locator("ul.et_pb_tabs_controls li");
@@ -47,8 +45,7 @@ export class SimpleElemsPage extends BasePage {
   }
 
   async selectRadioButtonByValue(value: string): Promise<void> {
-    const radioButton = this.genderRadioButtons.filter({ has: this.page.locator(`input[value='${value}']`) });
-    await this.click(radioButton);
+    await this.page.locator(`input[name="gender"][value="${value}"]`).click();;
   }
 
   async toggleAllTransportCheckboxes(): Promise<void> {
