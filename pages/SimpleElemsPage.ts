@@ -45,7 +45,7 @@ export class SimpleElemsPage extends BasePage {
   }
 
   async selectRadioButtonByValue(value: string): Promise<void> {
-    await this.page.locator(`input[name="gender"][value="${value}"]`).click();;
+    await this.page.locator(`input[name="gender"][value="${value}"]`).click();
   }
 
   async toggleAllTransportCheckboxes(): Promise<void> {

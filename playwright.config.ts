@@ -10,27 +10,23 @@ export default defineConfig({
     headless: true,
     screenshot: "only-on-failure",
   },
-    reporter: [
-    ['list'], // console output
-    ['html', { open: 'never' }], // HTML report
-    ['junit', { outputFile: 'test-results/junit-report.xml' }] // JUnit for CI/CD
+  reporter: [
+    ["list"], // console output
+    ["html", { open: "never" }], // HTML report
+    ["junit", { outputFile: "test-results/junit-report.xml" }], // JUnit for CI/CD
   ],
-   projects: [
+  projects: [
     {
-      name: 'chromium',
-      use: 
-      { ...devices['Desktop Chrome'], 
-        video: 'retain-on-failure',
-        trace: 'retain-on-failure',
-      }, //only one browser not to overload the storage with tons of videos and traces
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"], video: "retain-on-failure", trace: "retain-on-failure" }, //only one browser not to overload the storage with tons of videos and traces
     },
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
     },
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] },
     },
   ],
 });
