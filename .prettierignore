@@ -15,3 +15,7 @@ Thumbs.db
 
 # Docs files
 *_spec3.json
+
+# Allure files
+allure-results/
+allure-report/
