@@ -2,7 +2,11 @@ import { expect, test } from "@playwright/test";
 import { SprintPage } from "../pages/SprintPage";
 import testData from "../test_data/general_data.json" assert { type: "json" };
 
-test("cycle all sprints on the page", async ({ page }) => {
+test("cycle all sprints on the page", async ({ page }, testInfo) => {
+  testInfo.annotations.push({ type: "feature", description: "Sprint Lifecycle" });
+  testInfo.annotations.push({ type: "severity", description: "critical" });
+  testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
+
   const sprintPage = new SprintPage(page);
 
   const formFirstNames = testData.sprint_lifecycle.firstNames;

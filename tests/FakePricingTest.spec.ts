@@ -2,7 +2,11 @@ import { expect, test } from "@playwright/test";
 import { FakePricingPage } from "../pages/FakePricingPage";
 import testData from "../test_data/general_data.json" assert { type: "json" };
 
-test("verify prices on fake pricing page", async ({ page }) => {
+test("verify prices on fake pricing page", async ({ page }, testInfo) => {
+  testInfo.annotations.push({ type: "feature", description: "Pricing" });
+  testInfo.annotations.push({ type: "severity", description: "normal" });
+  testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
+
   const fakePricingPage = new FakePricingPage(page);
   const expectedPrices = testData.fake_pricing.expectedPrices;
 
@@ -12,7 +16,11 @@ test("verify prices on fake pricing page", async ({ page }) => {
   expect(prices).toEqual(expectedPrices);
 });
 
-test("verify price buttons scroll to top", async ({ page }) => {
+test("verify price buttons scroll to top", async ({ page }, testInfo) => {
+  testInfo.annotations.push({ type: "feature", description: "Pricing" });
+  testInfo.annotations.push({ type: "severity", description: "normal" });
+  testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
+
   const fakePricingPage = new FakePricingPage(page);
   await fakePricingPage.goto(fakePricingPage.url);
   const buttonCount = await fakePricingPage.getPriceButtonCount();

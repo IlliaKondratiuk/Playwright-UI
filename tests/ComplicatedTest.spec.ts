@@ -3,14 +3,22 @@ import { expect, test } from "@playwright/test";
 import { ComplicatedPage } from "../pages/ComplicatedPage";
 import testData from "../test_data/general_data.json" assert { type: "json" };
 
-test("click every second button in first section", async ({ page }) => {
+test("click every second button in first section", async ({ page }, testInfo) => {
+  testInfo.annotations.push({ type: "feature", description: "First Section" });
+  testInfo.annotations.push({ type: "severity", description: "critical" });
+  testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
+
   const complicatedPage = new ComplicatedPage(page);
   await complicatedPage.goto(complicatedPage.url);
 
   await complicatedPage.clickEverySecondButton();
 });
 
-test("check social media links", async ({ page }) => {
+test("check social media links", async ({ page }, testInfo) => {
+  testInfo.annotations.push({ type: "feature", description: "Social Media" });
+  testInfo.annotations.push({ type: "severity", description: "critical" });
+  testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
+
   const complicatedPage = new ComplicatedPage(page);
   await complicatedPage.goto(complicatedPage.url);
 
@@ -22,7 +30,11 @@ test("check social media links", async ({ page }) => {
   await expect(page).toHaveURL(/facebook.com/, { timeout: 5000 });
 });
 
-test("fill and submit form", async ({ page }) => {
+test("fill and submit form", async ({ page }, testInfo) => {
+  testInfo.annotations.push({ type: "feature", description: "Form Submission" });
+  testInfo.annotations.push({ type: "severity", description: "high" });
+  testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
+
   const complicatedPage = new ComplicatedPage(page);
 
   const formName = testData.complicated_form.formName;
@@ -34,7 +46,11 @@ test("fill and submit form", async ({ page }) => {
   await complicatedPage.fillAndSubmitForm(formName, formEmail, formMessage);
 });
 
-test("submit empty form and check error message", async ({ page }) => {
+test("submit empty form and check error message", async ({ page }, testInfo) => {
+  testInfo.annotations.push({ type: "feature", description: "Form Validation" });
+  testInfo.annotations.push({ type: "severity", description: "critical" });
+  testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
+
   const complicatedPage = new ComplicatedPage(page);
   await complicatedPage.goto(complicatedPage.url);
 
