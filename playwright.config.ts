@@ -14,6 +14,7 @@ export default defineConfig({
     ["list"], // console output
     ["html", { open: "never" }], // HTML report
     ["junit", { outputFile: "test-results/junit-report.xml" }], // JUnit for CI/CD
+    ["allure-playwright"], // Allure report
   ],
   projects: [
     {
