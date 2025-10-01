@@ -2,7 +2,7 @@ import { BrowserType, chromium, firefox, webkit } from "playwright";
 import fs from "fs";
 import path from "path";
 
-async function generateAllureEnv() {
+async function AllureEnvGenerator() {
   // Detect browser & version based on environment variable PW_BROWSER
   const browserName = process.env.PLAYWRIGHT_BROWSER || "chromium"; // fallback
   const launchers: Record<string, BrowserType> = {
@@ -32,4 +32,4 @@ BASE_URL=${baseUrl}
   console.log("✅ Allure environment.properties generated:\n", envContent);
 }
 
-generateAllureEnv();
+AllureEnvGenerator();

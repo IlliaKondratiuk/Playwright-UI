@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pretest": "ts-node scripts/generateAllureEnv.ts"
+    "pretest": "node --loader ts-node/esm scripts/AllureEnvGenerator.ts"
   },
   "repository": {
     "type": "git",
