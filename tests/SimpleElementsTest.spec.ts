@@ -12,7 +12,7 @@ test("interact with simple elements in first column", async ({ pages }, testInfo
   const genderButtonValues = testData.simple_elements.genderButtonValues;
   const manufacturerValues = testData.simple_elements.manufacturers;
 
-  await simpleElemsPage.goto(simpleElemsPage.url);
+  await simpleElemsPage.goto();
 
   await simpleElemsPage.fillEmailMeForm(formName, formEmail);
   await simpleElemsPage.clickEmailMeButton();
@@ -44,7 +44,7 @@ test("check salaries in both tables", async ({ pages }, testInfo) => {
 
   const simpleElemsPage = pages.simpleElems();
 
-  await simpleElemsPage.goto(simpleElemsPage.url);
+  await simpleElemsPage.goto();
 
   const table1 = await simpleElemsPage.getTableWithIdRows();
   for (const [, work, salary] of table1) {

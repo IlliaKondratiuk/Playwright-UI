@@ -10,7 +10,7 @@ test("verify prices on fake pricing page", async ({ pages }, testInfo) => {
   const fakePricingPage = pages.fakePricing();
   const expectedPrices = testData.fake_pricing.expectedPrices;
 
-  await fakePricingPage.goto(fakePricingPage.url);
+  await fakePricingPage.goto();
 
   const prices = await fakePricingPage.getPricesText();
   expect(prices).toEqual(expectedPrices);
@@ -22,7 +22,7 @@ test("verify price buttons scroll to top", async ({ page }, testInfo) => {
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
   const fakePricingPage = new FakePricingPage(page);
-  await fakePricingPage.goto(fakePricingPage.url);
+  await fakePricingPage.goto();
   const buttonCount = await fakePricingPage.getPriceButtonCount();
 
   for (let i = 0; i < buttonCount; i++) {

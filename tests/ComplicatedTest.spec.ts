@@ -8,7 +8,7 @@ test("click every second button in first section", async ({ pages }, testInfo) =
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
   const complicatedPage = pages.complicated();
-  await complicatedPage.goto(complicatedPage.url);
+  await complicatedPage.goto();
 
   await complicatedPage.clickEverySecondButton();
 });
@@ -19,7 +19,7 @@ test("check social media links", async ({ pages }, testInfo) => {
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
   const complicatedPage = pages.complicated();
-  await complicatedPage.goto(complicatedPage.url);
+  await complicatedPage.goto();
 
   await complicatedPage.clickFirstTwitterButton();
   await complicatedPage.expectUrl(/twitter.com/);
@@ -40,7 +40,7 @@ test("fill and submit form", async ({ pages }, testInfo) => {
   const formEmail = testData.complicated_form.formEmail;
   const formMessage = testData.complicated_form.formMessage;
 
-  await complicatedPage.goto(complicatedPage.url);
+  await complicatedPage.goto();
 
   await complicatedPage.fillAndSubmitForm(formName, formEmail, formMessage);
 });
@@ -51,7 +51,7 @@ test("submit empty form and check error message", async ({ pages }, testInfo) =>
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
   const complicatedPage = pages.complicated();
-  await complicatedPage.goto(complicatedPage.url);
+  await complicatedPage.goto();
 
   await complicatedPage.click(complicatedPage.formSubmitButton);
   expect(await complicatedPage.getFailedSubmitMessageText()).toContain(

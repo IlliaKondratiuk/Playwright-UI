@@ -12,7 +12,7 @@ test("cycle all sprints on the page", async ({ pages }, testInfo) => {
   const formLastNames = testData.sprint_lifecycle.lastNames;
   const genderButtonValues = testData.sprint_lifecycle.genderButtonValues;
 
-  await sprintPage.goto(sprintPage.url);
+  await sprintPage.goto();
 
   await sprintPage.fillFirstName(formFirstNames[0]);
   expect.soft(await sprintPage.isSubmitVisible()).toBeTruthy();
