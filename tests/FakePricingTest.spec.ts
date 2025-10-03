@@ -1,13 +1,13 @@
-import { expect, test } from "@playwright/test";
+import { test, expect } from './fixtures'
 import { FakePricingPage } from "../pages/FakePricingPage";
 import testData from "../test_data/general_data.json" assert { type: "json" };
 
-test("verify prices on fake pricing page", async ({ page }, testInfo) => {
+test("verify prices on fake pricing page", async ({ pages }, testInfo) => {
   testInfo.annotations.push({ type: "feature", description: "Pricing" });
   testInfo.annotations.push({ type: "severity", description: "normal" });
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
-  const fakePricingPage = new FakePricingPage(page);
+  const fakePricingPage = pages.fakePricing();
   const expectedPrices = testData.fake_pricing.expectedPrices;
 
   await fakePricingPage.goto(fakePricingPage.url);

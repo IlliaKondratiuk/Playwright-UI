@@ -1,13 +1,12 @@
-import { expect, test } from "@playwright/test";
-import { SimpleElemsPage } from "../pages/SimpleElemsPage";
+import { test, expect } from './fixtures'
 import testData from "../test_data/general_data.json" assert { type: "json" };
 
-test("interact with simple elements in first column", async ({ page }, testInfo) => {
+test("interact with simple elements in first column", async ({ pages }, testInfo) => {
   testInfo.annotations.push({ type: "feature", description: "Simple Elements" });
   testInfo.annotations.push({ type: "severity", description: "critical" });
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
-  const simpleElemsPage = new SimpleElemsPage(page);
+  const simpleElemsPage = pages.simpleElems();
   const formName = testData.complicated_form.formName;
   const formEmail = testData.complicated_form.formEmail;
   const genderButtonValues = testData.simple_elements.genderButtonValues;
@@ -38,12 +37,12 @@ test("interact with simple elements in first column", async ({ page }, testInfo)
 });
 
 //this one fails intentionally to check reporting
-test("check salaries in both tables", async ({ page }, testInfo) => {
+test("check salaries in both tables", async ({ pages }, testInfo) => {
   testInfo.annotations.push({ type: "feature", description: "Simple Elements" });
   testInfo.annotations.push({ type: "severity", description: "normal" });
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
-  const simpleElemsPage = new SimpleElemsPage(page);
+  const simpleElemsPage = pages.simpleElems();
 
   await simpleElemsPage.goto(simpleElemsPage.url);
 

@@ -1,41 +1,40 @@
 //This class contains tests for the "Complicated" page
-import { expect, test } from "@playwright/test";
-import { ComplicatedPage } from "../pages/ComplicatedPage";
+import { test, expect } from './fixtures'
 import testData from "../test_data/general_data.json" assert { type: "json" };
 
-test("click every second button in first section", async ({ page }, testInfo) => {
+test("click every second button in first section", async ({ pages }, testInfo) => {
   testInfo.annotations.push({ type: "feature", description: "First Section" });
   testInfo.annotations.push({ type: "severity", description: "critical" });
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
-  const complicatedPage = new ComplicatedPage(page);
+  const complicatedPage = pages.complicated();
   await complicatedPage.goto(complicatedPage.url);
 
   await complicatedPage.clickEverySecondButton();
 });
 
-test("check social media links", async ({ page }, testInfo) => {
+test("check social media links", async ({ pages }, testInfo) => {
   testInfo.annotations.push({ type: "feature", description: "Social Media" });
   testInfo.annotations.push({ type: "severity", description: "critical" });
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
-  const complicatedPage = new ComplicatedPage(page);
+  const complicatedPage = pages.complicated();
   await complicatedPage.goto(complicatedPage.url);
 
   await complicatedPage.clickFirstTwitterButton();
-  await expect(page).toHaveURL(/x.com/, { timeout: 5000 });
+  await complicatedPage.expectUrl(/twitter.com/);
 
-  await page.goBack();
+  await complicatedPage.goBack();
   await complicatedPage.clickFirstFacebookButton();
-  await expect(page).toHaveURL(/facebook.com/, { timeout: 5000 });
+  await complicatedPage.expectUrl(/facebook.com/);
 });
 
-test("fill and submit form", async ({ page }, testInfo) => {
+test("fill and submit form", async ({ pages }, testInfo) => {
   testInfo.annotations.push({ type: "feature", description: "Form Submission" });
   testInfo.annotations.push({ type: "severity", description: "high" });
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
-  const complicatedPage = new ComplicatedPage(page);
+  const complicatedPage = pages.complicated();
 
   const formName = testData.complicated_form.formName;
   const formEmail = testData.complicated_form.formEmail;
@@ -46,12 +45,12 @@ test("fill and submit form", async ({ page }, testInfo) => {
   await complicatedPage.fillAndSubmitForm(formName, formEmail, formMessage);
 });
 
-test("submit empty form and check error message", async ({ page }, testInfo) => {
+test("submit empty form and check error message", async ({ pages }, testInfo) => {
   testInfo.annotations.push({ type: "feature", description: "Form Validation" });
   testInfo.annotations.push({ type: "severity", description: "critical" });
   testInfo.annotations.push({ type: "issue", description: "JIRA-1234" }); // Example issue annotation
 
-  const complicatedPage = new ComplicatedPage(page);
+  const complicatedPage = pages.complicated();
   await complicatedPage.goto(complicatedPage.url);
 
   await complicatedPage.click(complicatedPage.formSubmitButton);
