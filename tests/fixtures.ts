@@ -1,5 +1,4 @@
-import { test as base, expect as baseExpect } from '@playwright/test';
-import type { Page } from '@playwright/test';
+import { test as base} from '@playwright/test';
 
 import { SprintPage } from '../pages/SprintPage';
 import { ComplicatedPage } from '../pages/ComplicatedPage';
