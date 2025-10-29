@@ -20,9 +20,9 @@ It was created as a **learning and showcase project** to demonstrate modern auto
 Playwright-UI/
 ├── playwright.config.ts
 ├── tests/
-│ ├── example.spec.ts
-│ └── fixtures/
-│ └── testBase.ts # Custom base test with page objects
+│ ├── LandingTest.spec.ts
+│ └── fixtures.ts 
+│ └── ...
 ├── pages/
 │ ├── HomePage.ts
 │ ├── LoginPage.ts
@@ -31,6 +31,8 @@ Playwright-UI/
 │ └── AllureEnvGenerator.ts # Automatically generates Allure environment details
 ├── allure-results/
 ├── package.json
+├── .prettierrc
+├── eslint.config.js
 └── README.md
 ```
 
