@@ -16,6 +16,7 @@ It was created as a **learning and showcase project** to demonstrate modern auto
 
 ## 🧰 Project Structure
 
+```
 Playwright-UI/
 ├── playwright.config.ts
 ├── tests/
@@ -31,6 +32,7 @@ Playwright-UI/
 ├── allure-results/
 ├── package.json
 └── README.md
+```
 
 ---
 
