@@ -21,7 +21,7 @@ Playwright-UI/
 ├── playwright.config.ts
 ├── tests/
 │ ├── LandingTest.spec.ts
-│ └── fixtures.ts 
+│ ├──  fixtures.ts 
 │ └── ...
 ├── pages/
 │ ├── HomePage.ts
